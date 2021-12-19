@@ -11,6 +11,9 @@ public class LogReg {
         String logReg = sc.nextLine();
         if (logReg.equalsIgnoreCase("/log")) {
             login = Login.login(sc);
+            if (login.equalsIgnoreCase("register")) {
+                login = (String) Register.register(sc);
+            }
             while (login.equalsIgnoreCase("password")) {
                 login = Login.login(sc);
             }

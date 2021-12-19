@@ -16,9 +16,10 @@ public class Message {
     private String to;
     private String text;
 
-    public Message(String from, String text) {
+    public Message(String from, String to, String text) {
         this.from = from;
         this.text = text;
+        this.to = to;
     }
 
     public String toJSON() {

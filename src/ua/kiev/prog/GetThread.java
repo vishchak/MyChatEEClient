@@ -14,6 +14,8 @@ public class GetThread implements Runnable {
     private final Gson gson;
     private int n;
 
+    private User user = User.getInstance();
+
     public GetThread() {
         gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
     }
@@ -21,8 +23,8 @@ public class GetThread implements Runnable {
     @Override
     public void run() {
         try {
-            while ( ! Thread.interrupted()) {
-                URL url = new URL(Utils.getURL() + "/get?from=" + n);
+            while (!Thread.interrupted()) {
+                URL url = new URL(Utils.getURL() + "/get?from=" + n + "&to=" + user.getLogin());
                 HttpURLConnection http = (HttpURLConnection) url.openConnection();
 
                 InputStream is = http.getInputStream();
